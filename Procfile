@@ -1,0 +1,1 @@
+web: gunicorn minesapp.wsgi --log-file -

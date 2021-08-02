@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import BaseUserManager, AbstractBaseUser
 
 
+
 # the models for the user and the user object
 
 class UserManager(BaseUserManager):
@@ -91,11 +92,20 @@ class User(AbstractBaseUser):
 
 
 # the models for the saved games.... 
-
 class SavedGames(models.Model):
     user = models.ForeignKey(to=User, on_delete=models.CASCADE)
+    name = models.CharField(max_length=30, default="game")
     level = models.CharField(max_length=10, default='easy')
     mines_array = models.CharField(max_length=400, verbose_name='mines array') # holds the mines array
     opened_array = models.CharField(max_length=400,verbose_name='opened array') # holds the opened buttons array
     time = models.IntegerField()
-        
+    time_saved = models.CharField(max_length=100)
+
+
+
+# the model for played games....
+class PlayedGames(models.Model):
+    user = models.ForeignKey(to=User, on_delete=models.CASCADE)
+    time_score = models.IntegerField()
+    level = models.CharField(max_length=10)
+    
