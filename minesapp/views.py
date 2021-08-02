@@ -54,7 +54,10 @@ def retrieveView(request, id, gid = None):
                 return Response({}, status=404)
     
     elif request.method == 'DELETE':
-        print(args)
+        game = SavedGames.objects.get(id = gid)
+        game.delete()
+
+        return Response({}, status=200)
 
 
 
