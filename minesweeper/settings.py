@@ -139,7 +139,7 @@ REST_FRAMEWORK = {
 
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
-    'https://owati.github.io/minesweeper/#/'
+    'https://owati.github.io'
 ]
 
 django_heroku.settings(locals())
